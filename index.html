@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wayline — оверлей для Path of Exile 1 и 2</title>
+  <meta name="description" content="Бесплатный открытый оверлей для Path of Exile 1 и 2: трекер забега, оценка предметов по Ctrl+C, заметки по картам и калькулятор урона.">
+  <meta name="theme-color" content="#101214">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Wayline — оверлей для Path of Exile 1 и 2">
+  <meta property="og:description" content="Открытый и бесплатный оверлей: трекер забега, оценка предметов, заметки по картам.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Unbounded:wght@500;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="4" fill="#171a1e" stroke="#2a2f36"/>
+          <path d="M6 9l5 13 5-11 5 11 5-13" fill="none" stroke="#d4a24c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="16" cy="11" r="1.9" fill="#e7e3d9"/>
+        </svg>
+        <span>Wayline</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Основная навигация">
+        <a href="#features">Возможности</a>
+        <a href="#how">Как начать</a>
+        <a href="#safety">Безопасность</a>
+        <a href="#install">Установка</a>
+        <a href="#faq">Вопросы</a>
+      </nav>
+
+      <a class="btn btn-primary btn-small" href="https://github.com/your-username/wayline/releases/latest" data-download>Скачать</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">Меню</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div>
+          <h1>Оверлей для Path of Exile 1 и 2, который не мешает играть</h1>
+          <p class="lead">Трекер забега, оценка предметов по Ctrl+C, заметки по картам и калькулятор урона. Открытый код, без подписок и регистрации.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://github.com/your-username/wayline/releases/latest" data-download>Скачать для Windows</a>
+            <a class="btn btn-ghost" href="https://github.com/your-username/wayline">Исходный код</a>
+          </div>
+          <p class="release-meta" id="release-meta">Проверяем последний релиз…</p>
+        </div>
+
+        <div class="stage" id="stage">
+          <div class="screen">
+            <div class="overlay" id="demo-overlay">
+              <div class="overlay-head">
+                <strong>Трекер забега</strong>
+                <span class="keys">Ctrl+Alt+O</span>
+              </div>
+              <dl class="readout">
+                <div><dt>Карта</dt><dd>Демо-карта</dd></div>
+                <div><dt>Время</dt><dd class="mono">12:48</dd></div>
+                <div><dt>Учтено предметов</dt><dd data-count="27">27</dd></div>
+                <div><dt>Ценность</dt><dd class="accent"><span data-count="38.5" data-decimals="1">38.5</span> ex</dd></div>
+              </dl>
+              <div class="item-check">
+                <p class="item-name">Редкий предмет (пример)</p>
+                <p class="item-price">Ориентир по объявлениям: около 2,4 ex</p>
+              </div>
+            </div>
+            <p class="screen-hint" id="screen-hint" hidden>Окно скрыто. Нажмите Ctrl+Alt+O, чтобы вернуть его.</p>
+          </div>
+
+          <div class="demo-controls">
+            <button class="btn btn-ghost btn-small" type="button" id="demo-pass" aria-pressed="false">Сквозной режим</button>
+            <p class="demo-hint">Демонстрация: игровой экран условный. Попробуйте Ctrl+Alt+O.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container split">
+        <div class="section-head">
+          <h2>Что внутри</h2>
+          <p>Каждый инструмент открывается горячей клавишей и прячется так же быстро, чтобы не отвлекать от карты.</p>
+        </div>
+
+        <ul class="feature-list">
+          <li>
+            <h3>Трекер забега</h3>
+            <p>Время карты и смену зон берёт из лога Client.txt. Предметы попадают в подсчёт, когда вы отмечаете их клавишей.</p>
+          </li>
+          <li>
+            <h3>Оценка по Ctrl+C</h3>
+            <p>Разбирает текст скопированного предмета и показывает ориентир цены по официальному торговому API.</p>
+          </li>
+          <li>
+            <h3>Заметки по картам</h3>
+            <p>Подсказки по картам и боссам с тегами и поиском. Новая заметка создаётся горячей клавишей.</p>
+          </li>
+          <li>
+            <h3>Калькулятор урона</h3>
+            <p>Средний урон и скорость атаки по введённым статам. Сборки сохраняются на вашем компьютере.</p>
+          </li>
+          <li>
+            <h3>Горячие клавиши</h3>
+            <p>Показ, скрытие, сквозной режим и сброс трекера назначаются под вашу раскладку.</p>
+          </li>
+          <li>
+            <h3>Под ваш монитор</h3>
+            <p>Прозрачность, масштаб и положение окна меняются в пару кликов.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="container narrow">
+        <div class="section-head">
+          <h2>Как начать</h2>
+          <p>Четыре шага от скачивания до первой оценки.</p>
+        </div>
+
+        <ol class="steps">
+          <li>
+            <h3>Скачайте и запустите</h3>
+            <p>Портативная версия или установщик для Windows из последнего релиза.</p>
+          </li>
+          <li>
+            <h3>Укажите лог игры</h3>
+            <p>В настройках выберите Client.txt. Приложение открывает файл только для чтения.</p>
+          </li>
+          <li>
+            <h3>Играйте как обычно</h3>
+            <p>Таймер карты идёт по записям о смене зон. Отмеченные предметы попадают в подсчёт.</p>
+          </li>
+          <li>
+            <h3>Копируйте предметы</h3>
+            <p>Нажмите Ctrl+C на предмете в игре, и оценка появится в окне.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="safety">
+      <div class="container">
+        <div class="section-head">
+          <h2>Что приложение делает и чего не делает</h2>
+          <p>Оно работает только с тем, что игра и так записывает, с тем, что вы копируете, и с публичным API.</p>
+        </div>
+
+        <div class="safety-cols">
+          <div>
+            <h3>Делает</h3>
+            <ul class="marks yes">
+              <li>Читает текстовый лог Client.txt, который игра пишет сама.</li>
+              <li>Разбирает текст предмета, скопированного через Ctrl+C.</li>
+              <li>Отправляет обычные запросы к официальному торговому API.</li>
+              <li>Хранит настройки и заметки на вашем компьютере.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Не делает</h3>
+            <ul class="marks no">
+              <li>Не читает и не меняет память игрового клиента.</li>
+              <li>Не внедряется в процесс игры и не перехватывает сетевой трафик.</li>
+              <li>Не нажимает клавиши и не управляет персонажем.</li>
+              <li>Не запрашивает пароль и не собирает личные данные.</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="disclaimer">Wayline — независимый проект. Он не связан с Grinding Gear Games и не одобрен ими. Path of Exile — торговая марка Grinding Gear Games. Правила сторонних инструментов могут меняться, поэтому следите за официальными анонсами.</p>
+      </div>
+    </section>
+
+    <section id="install">
+      <div class="container install-grid">
+        <div>
+          <h2>Установка</h2>
+          <p>Нужна Windows 10 или 11. Установщик и портативная версия лежат на странице релизов.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://github.com/your-username/wayline/releases/latest" data-download>Скачать для Windows</a>
+          </div>
+
+          <h3 class="sub">Сборка из исходников</h3>
+          <p>Для разработчиков: клонируйте репозиторий и следуйте инструкции в README.</p>
+          <div class="code-block">
+            <code>git clone https://github.com/your-username/wayline.git</code>
+            <button class="btn btn-ghost btn-small" type="button" data-copy="git clone https://github.com/your-username/wayline.git">Копировать</button>
+          </div>
+        </div>
+
+        <div>
+          <h3>Горячие клавиши по умолчанию</h3>
+          <p>Сочетания меняются в настройках приложения.</p>
+          <table class="hotkeys">
+            <thead>
+              <tr><th scope="col">Действие</th><th scope="col">Клавиши</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Показать или скрыть окно</td><td><kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>O</kbd></td></tr>
+              <tr><td>Сквозной режим</td><td><kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>P</kbd></td></tr>
+              <tr><td>Учесть последний предмет</td><td><kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>A</kbd></td></tr>
+              <tr><td>Новая заметка по карте</td><td><kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>N</kbd></td></tr>
+              <tr><td>Сбросить трекер забега</td><td><kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>R</kbd></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container narrow">
+        <div class="section-head">
+          <h2>Вопросы и ответы</h2>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Это бесплатно?</summary>
+            <p>Да. Проект распространяется по лицензии MIT. Подписок, платных функций и обязательных пожертвований нет.</p>
+          </details>
+          <details>
+            <summary>Нужна ли регистрация?</summary>
+            <p>Нет. Аккаунт не нужен, настройки и заметки хранятся на вашем компьютере.</p>
+          </details>
+          <details>
+            <summary>Могут ли за это заблокировать аккаунт?</summary>
+            <p>Инструмент не читает память игры и не автоматизирует действия. Но правила принимает Grinding Gear Games, поэтому следите за их анонсами и используйте приложение на свой риск.</p>
+          </details>
+          <details>
+            <summary>Работает ли с Path of Exile 2?</summary>
+            <p>Цель проекта — поддерживать обе игры. Версия игры и путь к логу выбираются в настройках.</p>
+          </details>
+          <details>
+            <summary>Отправляет ли приложение мои данные?</summary>
+            <p>Нет, кроме запросов к торговому API по предметам, которые вы сами оценили. Телеметрии по умолчанию нет.</p>
+          </details>
+          <details>
+            <summary>Почему оценка предмета — только ориентир?</summary>
+            <p>Цена строится по открытым объявлениям торгового сайта. Это картина рынка на сейчас, а не гарантия продажи.</p>
+          </details>
+          <details>
+            <summary>Как сообщить об ошибке или помочь?</summary>
+            <p>Создайте issue в репозитории на GitHub. Переводы, исправления и предложения приняты.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-row">
+        <div>
+          <a class="brand" href="#top">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <rect width="32" height="32" rx="4" fill="#171a1e" stroke="#2a2f36"/>
+              <path d="M6 9l5 13 5-11 5 11 5-13" fill="none" stroke="#d4a24c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="16" cy="11" r="1.9" fill="#e7e3d9"/>
+            </svg>
+            <span>Wayline</span>
+          </a>
+          <p class="fine">Независимый проект. Не связан с Grinding Gear Games и не одобрен ими.</p>
+        </div>
+        <nav class="footer-links" aria-label="Ссылки проекта">
+          <a href="https://github.com/your-username/wayline">GitHub</a>
+          <a href="https://github.com/your-username/wayline/issues">Сообщить об ошибке</a>
+          <a href="https://github.com/your-username/wayline/blob/main/LICENSE">Лицензия MIT</a>
+        </nav>
+      </div>
+      <p class="copy">© <span id="year">2026</span> Wayline</p>
+    </div>
+  </footer>
+</body>
+</html>
